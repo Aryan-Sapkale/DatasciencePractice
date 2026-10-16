@@ -1,7 +1,6 @@
-num = int(input("Enter a number: "))
-fact = 1
+marks = [75, 80, 65, 90, 85]
 
-for i in range(1, num + 1):
-    fact = fact * i
-
-print("Factorial =", fact)
+print("All marks:", marks)
+print("First mark:", marks[0])
+print("Total marks:", sum(marks))
+print("Number of students:", len(marks))
