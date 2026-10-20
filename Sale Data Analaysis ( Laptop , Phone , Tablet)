@@ -1,0 +1,25 @@
+import pandas as pd
+
+data = {
+    "Product": ["Laptop", "Phone", "Tablet", "Laptop", "Phone"],
+    "Quantity": [5, 10, 8, 3, 7],
+    "Price": [50000, 20000, 15000, 50000, 20000]
+}
+
+df = pd.DataFrame(data)
+df["Revenue"] = df["Quantity"] * df["Price"]
+
+print("Sales Dataset:")
+print(df)
+
+print("\nTotal Revenue:", df["Revenue"].sum())
+print("Total Items Sold:", df["Quantity"].sum())
+print("Average Revenue:", df["Revenue"].mean())
+print("\nRevenue by Product:")
+print(df.groupby("Product")["Revenue"].sum())
+
+print("\nBest-Selling Product by Quantity:")
+print(df.groupby("Product")["Quantity"].sum().idxmax())
+
+df.to_csv("sales_report.csv", index=False)
+print("\nSales report saved successfully!")
