@@ -1,0 +1,30 @@
+import pandas as pd
+
+data = {
+    "Name": ["Amit", "Priya", "Rahul", "Sneha", "Rohan"],
+    "Age": [20, 21, 19, 22, 20],
+    "Marks": [85, 92, 67, 88, 76]
+}
+
+df = pd.DataFrame(data)
+print("Student Dataset:")
+print(df)
+
+print("\nTotal Students:", len(df))
+print("Average Marks:", df["Marks"].mean())
+print("Highest Marks:", df["Marks"].max())
+print("Lowest Marks:", df["Marks"].min())
+print("Median Marks:", df["Marks"].median())
+
+print("\nStudents Scoring Above 80:")
+print(df[df["Marks"] > 80])
+
+df["Result"] = df["Marks"].apply(
+    lambda x: "Pass" if x >= 40 else "Fail"
+)
+
+print("\nFinal Student Results:")
+print(df)
+
+df.to_csv("student_data.csv", index=False)
+print("\nData saved to student_data.csv")
